@@ -11,5 +11,4 @@ const context = initContext();
 // create app
 const app = createApp(context);
 app.loadModule(coreModule);
-app.loadModule(commentsModule);
 app.init();

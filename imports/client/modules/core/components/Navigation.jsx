@@ -1,11 +1,11 @@
 import React from 'react';
 
 const Navigation = () => (
-  <div>
-    <b> Navigation: </b>
-    <a href="/">Home</a> |
-    <a href="/new-post">New Post</a>
-  </div>
+  <ul>
+    <li><b> Navigation: </b></li>
+    <li><a href="/">Home</a> |</li>
+    <li><a href="/new-post">New Post</a></li>
+  </ul>
 );
 
 export default Navigation;

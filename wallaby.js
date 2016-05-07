@@ -7,13 +7,14 @@ module.exports = function (wallaby) {
 
   return {
     files: [
+      { pattern: 'imports/client/**/*.test.jsx', ignore: true },
       'imports/client/modules/**/components/*.jsx',
       'imports/client/modules/**/actions/*.js',
       'imports/client/modules/**/containers/*.js',
       'imports/client/modules/**/libs/*.js'
     ],
     tests: [
-      'imports/client/**/tests/*.jsx'
+      'imports/client/**/*.test.jsx'
     ],
     compilers: {
        '**/*.js*': wallaby.compilers.babel({
