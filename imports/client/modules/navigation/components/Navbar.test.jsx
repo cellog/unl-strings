@@ -10,7 +10,7 @@ describe('core.components.Layout', () => {
     expect(el.find('#mynavbar').length).to.equal(1);
   });
 
-  it('should render childrens', () => {
+  it('should render children', () => {
     const el = shallow(
       <Navbar>
         <div>test</div>
