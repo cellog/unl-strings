@@ -1,3 +1,3 @@
-import '../nav.bootstrap.less'
+import '../../../../main.less'
 import './DropdownMenu.jsx'
 import './Navbar.jsx'
