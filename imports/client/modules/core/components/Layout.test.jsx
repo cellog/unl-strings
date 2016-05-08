@@ -8,7 +8,7 @@ import Navbar from '../../navigation/components/Navbar.jsx';
 describe('core.components.Layout', () => {
   it('should contain navigation', () => {
     const el = shallow(<MainLayout />);
-    expect(el.contains(<Navbar />)).to.be.equal(true);
+    expect(el.find(Navbar)).to.have.length(1);
   });
 
   it('should render childrens', () => {

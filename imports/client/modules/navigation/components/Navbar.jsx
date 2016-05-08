@@ -1,7 +1,6 @@
 import React from 'react';
-import MenuItem from './MenuItem.jsx';
 
-const Navbar = ({children, content = () => null, id = 'mynavbar' }) => (
+const Navbar = ({children, id = 'mynavbar' }) => (
   <nav className="navbar navbar-default">
     <div className="container-fluid">
       {/* Brand and toggle get grouped for better mobile display */}
