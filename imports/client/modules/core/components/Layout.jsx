@@ -15,7 +15,7 @@ const Layout = ({content = () => null, navcontent = () => null }) => (
     </div>
 
     <footer>
-      <small>Built with <a href='https://github.com/kadirahq/mantra'>Mantra</a> &amp; Meteor.</small>
+      <small>Built by <a href='http://gregorybeaver.com'>Gregory Beaver</a> &amp; Meteor/Redux.</small>
     </footer>
   </div>
 );
