@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import MenuItem from './MenuItem.jsx'
 
-class DropdownMenu extends Component {
-  renderItems(items) {
+const DropdownMenu = ({onClick = () => null, open = false, items = []}) => {
+  const renderItems = (items) => {
     return items.map((item) => {
       switch (item.type) {
         case 'SEPARATOR' :
@@ -16,17 +16,16 @@ class DropdownMenu extends Component {
       }
     })
   }
-  render() {
-    return (
-      <li className={`dropdown ${this.props.open ? ' open' : ''}`} onClick={this.props.onClick}>
-        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button"
-           aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret" /></a>
-        <ul className="dropdown-menu">
-          {this.renderItems(this.props.items)}
-        </ul>
-      </li>
-    );
-  }
+
+  return (
+    <li className={`dropdown${open ? ' open' : ''}`} onClick={onClick}>
+      <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button"
+         aria-haspopup="true" aria-expanded={open ? "true" : "false"}>Dropdown <span className="caret" /></a>
+      <ul className="dropdown-menu">
+        {renderItems(items)}
+      </ul>
+    </li>
+  )
 }
 
 DropdownMenu.propTypes = {
