@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
+import { storiesOf, action, linkTo } from '@kadira/storybook';
 import DropdownMenu from '../DropdownMenu.jsx';
 
 storiesOf('core.DropdownMenu', module)
@@ -32,7 +32,7 @@ storiesOf('core.DropdownMenu', module)
     return (
       <nav className="navbar navbar-default">
         <ul className="nav navbar-nav">
-          <DropdownMenu open onClick={action('clicked')} items={[
+          <DropdownMenu open onClick={linkTo('core.DropdownMenu', 'closed')} items={[
             {
               type: 'MENUITEM',
               active: false,
@@ -53,7 +53,32 @@ storiesOf('core.DropdownMenu', module)
       </nav>
     )
   })
-  .add('hovered menu item', () => {
+  .add('closed', () => {
+    return (
+      <nav className="navbar navbar-default">
+        <ul className="nav navbar-nav">
+          <DropdownMenu onClick={linkTo('core.DropdownMenu', 'open')} items={[
+            {
+              type: 'MENUITEM',
+              active: false,
+              link: '/example',
+              text: 'First'
+            },
+            {
+              type: 'SEPARATOR'
+            },
+            {
+              type: 'MENUITEM',
+              active: false,
+              link: '/thing',
+              text: 'Second'
+            }
+          ]} />
+        </ul>
+      </nav>
+    )
+  })
+  .add('active menu item', () => {
     return (
       <nav className="navbar navbar-default">
         <ul className="nav navbar-nav">
