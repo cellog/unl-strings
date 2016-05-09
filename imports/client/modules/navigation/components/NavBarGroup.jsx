@@ -13,8 +13,9 @@ const NavBarGroup = ({ position = '', tag = 'ul', extraclass = '', children, ...
       pos = ''
       break
   }
+  let ec = extraclass ? ` ${extraclass}` : ''
   return React.DOM[tag].call(React.DOM[tag], {
-    className: `nav navbar-nav${pos} ${extraclass}`,
+    className: `nav navbar-nav${pos}${ec}`,
     ...stuff
   }, children)
 }
