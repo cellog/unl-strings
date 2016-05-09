@@ -3,7 +3,7 @@ import { storiesOf, action } from '@kadira/storybook';
 import NavBarGroup from '../NavBarGroup.jsx';
 import MenuItem from '../MenuItem.jsx';
 
-storiesOf('core.NavBarGroup', module)
+storiesOf('navigation.NavBarGroup', module)
   .add('default view', () => {
     return (
       <nav className="navbar navbar-default">

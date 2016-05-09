@@ -1,4 +1,3 @@
-import '../imports/client/modules/core/components/style.css'
 import '../imports/client/main.less'
 import { render } from 'react-dom'
 import React from 'react'

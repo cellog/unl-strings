@@ -5,7 +5,7 @@ import MenuItem from '../MenuItem.jsx';
 import DropdownMenu from '../DropdownMenu.jsx';
 import NavBarGroup from '../NavBarGroup.jsx';
 
-storiesOf('core.Navbar', module)
+storiesOf('navigation.Navbar', module)
   .add('default view', () => {
     return (
       <Navbar />

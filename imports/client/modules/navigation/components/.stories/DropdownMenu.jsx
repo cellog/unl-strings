@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 import DropdownMenu from '../DropdownMenu.jsx';
 
-storiesOf('core.DropdownMenu', module)
+storiesOf('navigation.DropdownMenu', module)
   .add('default view', () => {
     return (
       <nav className="navbar navbar-default">

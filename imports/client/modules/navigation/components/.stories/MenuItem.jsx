@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import MenuItem from '../MenuItem.jsx';
 
-storiesOf('core.MenuItem', module)
+storiesOf('navigation.MenuItem', module)
   .add('default view', () => {
     return (
       <nav className="navbar navbar-default">
