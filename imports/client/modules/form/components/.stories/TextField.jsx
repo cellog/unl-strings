@@ -29,7 +29,7 @@ storiesOf('form.TextField', module)
 
   .add('type password', () => {
     return (
-      <TextField id="hi" typ="password" placeholder="*****" label="Password" />
+      <TextField id="hi" type="password" placeholder="*****" label="Password" />
     )
   })
 

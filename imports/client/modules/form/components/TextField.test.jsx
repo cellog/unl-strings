@@ -43,4 +43,28 @@ describe('form.components.TextField', () => {
     expect(el.find('p').node.props.className).to.equal('help-block')
     expect(el.find('p').node.props.children).to.equal('Here is the help you need')
   })
+
+  it('should have placeholder set', () => {
+    const el = shallow(<TextField id="hi"/>)
+
+    expect(el.find('input').node.props.placeholder).to.equal('')
+  })
+
+  it('should have new placeholder set', () => {
+    const el = shallow(<TextField id="hi" placeholder="placeholder"/>)
+
+    expect(el.find('input').node.props.placeholder).to.equal('placeholder')
+  })
+
+  it('should have label set', () => {
+    const el = shallow(<TextField id="hi" placeholder="placeholder"/>)
+
+    expect(el.find('label').node.props.children).to.equal('Text Field')
+  })
+
+  it('should have new label set', () => {
+    const el = shallow(<TextField id="hi" label="placeholder"/>)
+
+    expect(el.find('label').node.props.children).to.equal('placeholder')
+  })
 })
