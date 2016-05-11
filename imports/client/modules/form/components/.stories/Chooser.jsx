@@ -3,9 +3,18 @@ import { storiesOf, action, linkTo } from '@kadira/storybook';
 import Chooser from '../Chooser.jsx';
 
 storiesOf('form.Chooser', module)
+  .add('default', () => {
+    return (
+      <Chooser items={[
+        {value: 5, text: "hi"},
+        {value: 6, text: "there"}
+      ]} onChange={action('checked')} />
+    )
+  })
+
   .add('checkbox', () => {
     return (
-      <Chooser type="checkbox" items={[
+      <Chooser type="checkbox" id="hi" items={[
         {value: 5, text: "hi"},
         {value: 6, text: "there"}
       ]} onChange={action('checked')} />
@@ -14,7 +23,7 @@ storiesOf('form.Chooser', module)
 
   .add('checkbox inline', () => {
     return (
-      <Chooser type="checkbox" display="inline" items={[
+      <Chooser type="checkbox" id="hi" display="inline" items={[
         {value: 5, text: "hi"},
         {value: 6, text: "there"}
       ]} onChange={action('checked')} />
@@ -23,7 +32,7 @@ storiesOf('form.Chooser', module)
   
   .add('radio', () => {
     return (
-      <Chooser type="radio" items={[
+      <Chooser type="radio" id="hi" items={[
         {value: 5, text: "hi"},
         {value: 6, text: "there"}
       ]} onChange={action('checked')} />
@@ -32,7 +41,7 @@ storiesOf('form.Chooser', module)
 
   .add('radio inline', () => {
     return (
-      <Chooser type="radio" display="inline" items={[
+      <Chooser type="radio" id="hi" display="inline" items={[
         {value: 5, text: "hi"},
         {value: 6, text: "there"}
       ]} onChange={action('checked')} />
@@ -41,7 +50,7 @@ storiesOf('form.Chooser', module)
 
   .add('select', () => {
     return (
-      <Chooser type="select" items={[
+      <Chooser type="select" id="hi"  items={[
         {value: 5, text: "hi"},
         {value: 6, text: "there"}
       ]} onChange={action('selected')} />
@@ -50,7 +59,7 @@ storiesOf('form.Chooser', module)
 
   .add('select multiple', () => {
     return (
-      <Chooser type="select" multiple items={[
+      <Chooser type="select" multiple id="hi" items={[
         {value: 5, text: "hi"},
         {value: 6, text: "there"}
       ]} onChange={action('selected')} />
