@@ -32,6 +32,6 @@ describe('core.components.Layout', () => {
       <MainLayout navcontent={group} />
     )
 
-    expect(el.contains(MenuItem)).to.be.equal(true)
+    expect(el.contains(<MenuItem />)).to.be.equal(true)
   })
 });

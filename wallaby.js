@@ -27,7 +27,26 @@ module.exports = function (wallaby) {
     },
     testFramework: 'mocha',
     setup: function() {
-      global.React = require('react');
+      global.React = require('react')
+      const jsdom = require('jsdom').jsdom;
+
+      // from mocha-jsdom https://github.com/rstacruz/mocha-jsdom/blob/master/index.js#L80
+      const propagateToGlobal = (window) => {
+        for (var key in window) {
+          if (!window.hasOwnProperty(key)) continue
+          if (key in global) continue
+
+          global[key] = window[key]
+        }
+      }
+
+      // setup the simplest document possible
+      const doc = jsdom('')
+      const win = doc.defaultView
+      global.document = doc
+      global.window = win
+
+      propagateToGlobal(win)
     }
   };
 };
