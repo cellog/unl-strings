@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import Checkbox from './Chooser.Checkbox.jsx'
+import Select from './Chooser.SelectBox.jsx'
 
 export default class Chooser extends Component {
   render() {
@@ -10,7 +11,9 @@ export default class Chooser extends Component {
           <Chooser.Checkbox {...this.props} />
         )
       case 'select' :
-        
+        return (
+          <Chooser.Select {...this.props} />
+        )
     }
   }
 }
@@ -21,3 +24,4 @@ Chooser.propTypes = {
 }
 
 Chooser.Checkbox = Checkbox
+Chooser.Select = Select

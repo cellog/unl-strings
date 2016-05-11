@@ -38,3 +38,21 @@ storiesOf('form.Chooser', module)
       ]} onChange={action('checked')} />
     )
   })
+
+  .add('select', () => {
+    return (
+      <Chooser type="select" items={[
+        {value: 5, text: "hi"},
+        {value: 6, text: "there"}
+      ]} onChange={action('selected')} />
+    )
+  })
+
+  .add('select multiple', () => {
+    return (
+      <Chooser type="select" multiple items={[
+        {value: 5, text: "hi"},
+        {value: 6, text: "there"}
+      ]} onChange={action('selected')} />
+    )
+  })
