@@ -18,7 +18,6 @@ const Chooser = (props) => {
   }
 
   const { type = 'select', id = 'chooser', labelclass = '', label = 'Chooser'} = props
-
   return (
     <div>
       <label htmlFor={id} className={labelclass}>{label}</label>

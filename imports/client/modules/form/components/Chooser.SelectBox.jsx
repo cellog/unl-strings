@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 
 const SelectBox = ({value = null, id, items = [], onChange = () => null, multiple = false,
                     fieldclass = '', labelclass = ''}) => {
-  const option = ({ value = null, text = 'text' }) => (
+  const option = ({ value = '', text = 'text' }) => (
     <option value={value}>{text}</option>
   )
   return (
@@ -14,7 +14,7 @@ const SelectBox = ({value = null, id, items = [], onChange = () => null, multipl
 
 
 SelectBox.propTypes = {
-  options: PropTypes.arrayOf(
+  items: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.any,
       text: PropTypes.string.isRequired,

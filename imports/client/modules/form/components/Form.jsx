@@ -1,13 +1,13 @@
-import React from 'react'
+import React, {Component, PropTypes} from 'react'
 import TextField from './TextField.jsx'
 import TextAreaField from './TextAreaField.jsx'
 import Chooser from './Chooser.jsx'
 
-const Form = ({fields = [], data = {}, onChange = () => null}) => {
-  const mapDataToValue = (meta, data) => {
+class Form extends Component {
+  mapDataToValue(meta, data) {
     return data[meta.field]
   }
-  const mapDataToField = (meta) => {
+  mapDataToField(meta) {
     switch (meta.type) {
       case 'text' :
         return TextField
@@ -17,43 +17,68 @@ const Form = ({fields = [], data = {}, onChange = () => null}) => {
         return Chooser
     }
   }
-  const mapSubTypeToField = (meta) => {
+  mapSubTypeToField(meta) {
     switch (meta.type) {
       case 'chooser' :
         return meta.subtype
     }
     return null
   }
-  const mapDataToProps = (meta, value) => {
-    let items = []
-    if (meta.items) {
-      items = meta.items()
-      if (meta.mapitem) {
-        items = items.map(meta.mapitem.bind(undefined, value))
+  mapDataToProps(meta, value) {
+    const {items, mapitem, field, ...props} = meta
+    let mitems = []
+    if (items) {
+      mitems = items()
+      if (mapitem) {
+        mitems = mitems.map(mapitem.bind(undefined, value))
       }
     }
     return {
-      label: meta.label,
-      type: mapSubTypeToField(meta),
-      placeholder: meta.placeholder ? meta.placeholder : '',
-      items: items,
-      value: value,
-      onChange: (value) => onChange(meta.field, value)
+      ...props,
+      id: meta.field,
+      key: meta.field,
+      type: this.mapSubTypeToField(meta),
+      items: mitems,
+      value,
+      onChange: value => this.props.onChange(meta.field, value),
     }
   }
-  const renderChildren = (fields, data) => {
+  renderChildren(fields, data) {
     return fields.map((field) => {
-      const reactField = mapDataToField(field)
+      const reactField = this.mapDataToField(field)
       const factory = React.createFactory(reactField)
-      const value = data[field.field]
-      return factory(mapDataToProps(field, value))
+      const value = this.mapDataToValue(field, data)
+      return factory(this.mapDataToProps(field, value))
     })
   }
-  return (
-    <form>
-      {renderChildren(fields, data)}
-    </form>
-  )
+  render()
+  {
+    return (
+      <form>
+        {this.renderChildren(this.props.fields, this.props.data)}
+      </form>
+    )
+  }
+}
+
+Form.propTypes = {
+  fields: PropTypes.arrayOf(PropTypes.shape({
+    type: PropTypes.oneOf(['text', 'textarea', 'chooser']).isRequired,
+    subtype: PropTypes.oneOf(['checkbox', 'radio', 'select']),
+    mapitem: PropTypes.func,
+    items: PropTypes.func,
+    field: PropTypes.string.isRequired,
+    label: PropTypes.string,
+    placeholder: PropTypes.string
+  })),
+  data: PropTypes.object,
+  onChange: PropTypes.func.isRequired
+}
+
+Form.defaultProps = {
+  fields: [],
+  data: {},
+  onChange: () => null
 }
 
 export default Form
