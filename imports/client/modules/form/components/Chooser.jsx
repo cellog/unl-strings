@@ -3,8 +3,8 @@ import Checkbox from './Chooser.Checkbox.jsx'
 import Select from './Chooser.SelectBox.jsx'
 
 const Chooser = (props) => {
-  const renderElement = ({type = 'select', ...props}) => {
-    switch (type) {
+  const renderElement = (props) => {
+    switch (props.type) {
       case 'checkbox' :
       case 'radio' :
         return (

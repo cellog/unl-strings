@@ -24,7 +24,7 @@ describe('form.components.TextAreaField', () => {
   
   it('should update value with onChange', () => {
     let value = ''
-    const callback = (e) => { value = e.target.value }
+    const callback = (e) => { value = e }
     const el = shallow(<TextAreaField id="myid" onChange={(e) => callback(e)} />)
 
     el.find('textarea').simulate('change', {

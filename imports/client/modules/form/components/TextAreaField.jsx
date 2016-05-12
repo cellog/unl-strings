@@ -7,7 +7,7 @@ const TextAreaField = ({label = 'TextArea Field', onChange = () => null,
     <div>
       <label htmlFor={id} className={labelclass}>{label}</label>
       <textarea rows={rows ? rows : null } className={myclass()} id={id} placeholder={placeholder}
-                onChange={(e) => onChange(e)} value={value}/>
+                onChange={(e) => onChange(e.target.value)} value={value}/>
       {help ? <p className="help-block">{help}</p> : ''}
     </div>
   )

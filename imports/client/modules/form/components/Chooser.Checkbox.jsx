@@ -5,13 +5,14 @@ export const Input = ({ className = '', item = {
   type: 'checkbox',
   checked: false,
   text: 'Need to define item'
-}, type = 'checkbox', onChange = () => null}) => (
+}, type = 'checkbox', onChange = () => null}) => {
+  return (
   <label className={className}>
     <input key={item.value} type={type} value={item.value}
            checked={item.checked} onChange={() => onChange(item)} />
     {item.text}
   </label>
-)
+)}
 
 Input.propTypes = {
   className: PropTypes.string,
@@ -24,7 +25,8 @@ Input.propTypes = {
   onChange: PropTypes.func.isRequired
 }
 
-const Checkbox = ({items = [], display = 'normal', type="checkbox", onChange = () => null }) => {
+const Checkbox = (props) => {
+  const {items = [], display = 'normal', type="checkbox", onChange = () => null, value } = props
   function inline(items) {
     return (
       <div>

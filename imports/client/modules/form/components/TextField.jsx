@@ -7,7 +7,7 @@ const TextField = ({label = 'Text Field', onChange = () => null,
   return (
     <div>
       <label htmlFor={id} className={labelclass}>{label}</label>
-      <input type={type} className={myclass()} id={id} placeholder={placeholder} onChange={(e) => onChange(e)}
+      <input type={type} className={myclass()} id={id} placeholder={placeholder} onChange={(e) => onChange(e.target.value)}
              value={value}/>
       {help ? <p className="help-block">{help}</p> : ''}
     </div>

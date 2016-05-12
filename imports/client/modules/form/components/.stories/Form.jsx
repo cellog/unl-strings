@@ -9,10 +9,48 @@ storiesOf('form.Form', module)
     )
   })
 
-  .add('children', () => {
+  .add('complex', () => {
+    const data = [
+      {job: "Fill sewer", id: 1},
+      {job: "Make bread", id: 2},
+      {job: "Dream", id: 3},
+      {job: "Mock Trump", id: 4},
+    ]
     return (
-      <Form>
-        <div>hi</div>
-      </Form>
+      <Form
+        onChange={action("change")}
+        fields={[
+      {
+        type: 'text',
+        placeholder: 'Name',
+        field: 'name',
+        label: 'Full Name'
+      },
+      {
+        type: 'chooser',
+        subtype: 'checkbox',
+        mapitem: (value, item) => {
+          const checked = value.id === item.id
+          return {
+            text: item.job,
+            id: item.id,
+            checked: checked
+          }
+        },
+        items: () => data,
+        field: 'jobid',
+        label: 'Job'
+      },
+      {
+        type: 'textarea',
+        field: 'desc',
+        placeholder: 'Describe the kind of job this person will do',
+        label: 'Description'
+      }
+    ]} data={{
+      name: 'Gregory',
+      jobid: {job: "Fill sewer", id: 1},
+      desc: 'Hi there, he just kills it is all'
+    }} />
     )
   })
