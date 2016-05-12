@@ -3,7 +3,7 @@ module.exports = function (wallaby) {
   // See: https://goo.gl/cLH8ib
   // Using require here seems to be the error.
   // Renaming it into `load` just fixed the issue.
-  var load = require;
+  const load = require;
 
   return {
     files: [
@@ -27,10 +27,12 @@ module.exports = function (wallaby) {
     },
     testFramework: 'mocha',
     setup: function() {
-      global.React = require('react')
-      const jsdom = require('jsdom').jsdom;
+      // this fools meteor into ignoring the require statement.
+      // otherwise, it will try to load jsdom into the web version build and server build.
+      const fool = require
+      const jsdom = fool('jsdom').jsdom;
 
-      // from mocha-jsdom https://github.com/rstacruz/mocha-jsdom/blob/master/index.js#L80
+// from mocha-jsdom https://github.com/rstacruz/mocha-jsdom/blob/master/index.js#L80
       const propagateToGlobal = (window) => {
         for (var key in window) {
           if (!window.hasOwnProperty(key)) continue
@@ -40,7 +42,7 @@ module.exports = function (wallaby) {
         }
       }
 
-      // setup the simplest document possible
+// setup the simplest document possible
       const doc = jsdom('')
       const win = doc.defaultView
       global.document = doc
