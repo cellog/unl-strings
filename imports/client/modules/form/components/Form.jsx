@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import TextField from './TextField.jsx'
 import TextAreaField from './TextAreaField.jsx'
 import Chooser from './Chooser.jsx'
+import Button from './Button.jsx'
 
 class Form extends Component {
   mapDataToValue(meta, data) {
@@ -15,11 +16,14 @@ class Form extends Component {
         return TextAreaField
       case 'chooser' :
         return Chooser
+      case 'button' :
+        return Button
     }
   }
   mapSubTypeToField(meta) {
     switch (meta.type) {
       case 'chooser' :
+      case 'button' :
         return meta.subtype
     }
     return null
@@ -71,11 +75,11 @@ class Form extends Component {
 
 Form.propTypes = {
   fields: PropTypes.arrayOf(PropTypes.shape({
-    type: PropTypes.oneOf(['text', 'textarea', 'chooser']).isRequired,
-    subtype: PropTypes.oneOf(['checkbox', 'radio', 'select']),
+    type: PropTypes.oneOf(['text', 'textarea', 'chooser', 'button']).isRequired,
+    subtype: PropTypes.oneOf(['checkbox', 'radio', 'select', 'button', 'submit']),
     mapitem: PropTypes.func,
     items: PropTypes.func,
-    field: PropTypes.string.isRequired,
+    field: PropTypes.string,
     label: PropTypes.string,
     placeholder: PropTypes.string
   })),

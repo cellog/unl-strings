@@ -41,6 +41,13 @@ storiesOf('form.Form', module)
         field: 'desc',
         placeholder: 'Describe the kind of job this person will do',
         label: 'Description'
+      },
+      {
+        type: 'button',
+        onClick: action('clicked'),
+        title: 'Buttony McButtonFace',
+        field: 'button',
+        label: ''
       }
     ]} data={{
       name: 'Gregory',
@@ -88,6 +95,13 @@ storiesOf('form.Form', module)
         field: 'desc',
         placeholder: 'Describe the kind of job this person will do',
         label: 'Description'
+      },
+      {
+        type: 'button',
+        onClick: action('clicked'),
+        title: 'Buttony McButtonFace',
+        field: 'button',
+        label: ''
       }
     ]} data={{
       name: 'Gregory',
