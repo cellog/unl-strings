@@ -119,7 +119,7 @@ describe('form.components.Form', () => {
         label: 'Full Name',
         labelclass: 'hi'
       }
-    ]} />)
+    ]} data={{name: ''}} />)
 
     expect(el.find('div.col-sm-10').nodes).length(1)
     expect(el.find('label.hi.col-sm-2').nodes).length(1)

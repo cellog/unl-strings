@@ -27,7 +27,8 @@ class Form extends Component {
   horizontalFormProps(props) {
     return {
       labelclass: props.labelclass ? `col-sm-2 control-label ${props.labelclass}` : 'col-sm-2 control-label',
-      containerClass: 'col-sm-10'
+      containerClass: 'col-sm-10',
+      formtype: 'horizontal'
     }
   }
   mapDataToProps(meta, value) {
