@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import FormElement from './FormElement.jsx'
 import Checkbox from './Chooser.Checkbox.jsx'
 import Select from './Chooser.SelectBox.jsx'
 
@@ -19,12 +20,9 @@ const Chooser = (props) => {
 
   const { type, id, labelclass, label, containerClass} = props
   return (
-    <div>
-      <label htmlFor={id} className={labelclass}>{label}</label>
-      <div className={containerClass}>
-        {renderElement(props)}
-      </div>
-    </div>
+    <FormElement {...props}>
+      {renderElement(props)}
+    </FormElement>
   )
 }
 
