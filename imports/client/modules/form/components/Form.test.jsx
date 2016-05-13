@@ -109,4 +109,19 @@ describe('form.components.Form', () => {
     expect(change.calledOnce).to.be.true
     expect(change.getCall(0).args).to.eql(['name', 'Gregorya'])
   })
+
+  it('should render horizontal class', () => {
+    const el = mount(<Form type="horizontal" fields={[
+      {
+        type: 'text',
+        placeholder: 'Name',
+        field: 'name',
+        label: 'Full Name',
+        labelclass: 'hi'
+      }
+    ]} />)
+
+    expect(el.find('div.col-sm-10').nodes).length(1)
+    expect(el.find('label.hi.col-sm-2').nodes).length(1)
+  })
 })
