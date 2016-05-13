@@ -14,16 +14,16 @@ describe('core.components.Layout', () => {
   });
 
   it('should render children', () => {
-    const Comp = () => (<p>Hello</p>);
+    const Comp = <p>Hello</p>;
     const el = shallow(
-      <MainLayout content={() => (<Comp />)}/>
+      <MainLayout content={<Comp />}/>
     );
 
     expect(el.contains(<Comp />)).to.be.equal(true);
   });
 
   it('should render navigation', () => {
-    const group = () => (
+    const group = (
       <NavBarGroup position="right">
         <MenuItem />
       </NavBarGroup>
