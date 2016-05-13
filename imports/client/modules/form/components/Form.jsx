@@ -24,6 +24,12 @@ class Form extends Component {
     }
     return null
   }
+  horizontalFormProps(props) {
+    return {
+      labelclass: props.labelclass ? `col-sm-2 control-label ${props.labelclass}` : 'col-sm-2 control-label',
+      containerClass: 'col-sm-10'
+    }
+  }
   mapDataToProps(meta, value) {
     const {items, mapitem, field, ...props} = meta
     let mitems = []
@@ -33,8 +39,9 @@ class Form extends Component {
         mitems = mitems.map(mapitem.bind(undefined, value))
       }
     }
+    const horizprops = this.props.type === 'horizontal' ? {...props, ...this.horizontalFormProps(props)} : props
     return {
-      ...props,
+      ...horizprops,
       id: meta.field,
       key: meta.field,
       type: this.mapSubTypeToField(meta),
@@ -72,13 +79,15 @@ Form.propTypes = {
     placeholder: PropTypes.string
   })),
   data: PropTypes.object,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  formtype: PropTypes.oneOf(['default', 'horizontal', 'inline'])
 }
 
 Form.defaultProps = {
   fields: [],
   data: {},
-  onChange: () => null
+  onChange: () => null,
+  formtype: 'default'
 }
 
 export default Form

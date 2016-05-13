@@ -17,11 +17,13 @@ const Chooser = (props) => {
     }
   }
 
-  const { type = 'select', id = 'chooser', labelclass = '', label = 'Chooser'} = props
+  const { type, id, labelclass, label, containerClass} = props
   return (
     <div>
       <label htmlFor={id} className={labelclass}>{label}</label>
-      {renderElement(props)}
+      <div className={containerClass}>
+        {renderElement(props)}
+      </div>
     </div>
   )
 }
@@ -30,7 +32,16 @@ Chooser.propTypes = {
   type: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired,
-  labelclass: PropTypes.string
+  labelclass: PropTypes.string,
+  containerClass: PropTypes.string
+}
+
+Chooser.defaultProps = {
+  type: 'select',
+  id: 'chooser',
+  labelclass: '',
+  label: 'Chooser',
+  containerClass: ''
 }
 
 Chooser.Checkbox = Checkbox
