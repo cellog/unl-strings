@@ -1,6 +1,6 @@
 const {describe, it} = global;
 import {expect} from 'chai';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 import React from 'react';
 import MainLayout from './Layout.jsx';
 import Navbar from '../../navigation/components/Navbar.jsx';
@@ -16,9 +16,7 @@ describe('core.components.Layout', () => {
   it('should render children', () => {
     const Comp = <p>Hello</p>;
     const el = shallow(
-      <MainLayout>
-        <Comp />
-      </MainLayout>
+      <MainLayout main={<Comp />} />
     );
 
     expect(el.contains(<Comp />)).to.be.equal(true);
@@ -30,10 +28,10 @@ describe('core.components.Layout', () => {
         <MenuItem />
       </NavBarGroup>
     )
-    const el = shallow(
-      <MainLayout navcontent={group} />
+    const el = mount(
+      <MainLayout navigation={group} />
     )
 
-    expect(el.contains(<MenuItem />)).to.be.equal(true)
+    expect(el.contains(<MenuItem />)).to.be.true
   })
 });

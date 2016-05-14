@@ -25,7 +25,7 @@ export function goBackLink(link, router) {
 }
 
 Link.propTypes = {
-  to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired
+  href: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired
 }
 
 export default Link
