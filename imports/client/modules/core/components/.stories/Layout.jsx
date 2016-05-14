@@ -5,15 +5,17 @@ import NavBarGroup from '../../../navigation/components/NavBarGroup.jsx'
 
 storiesOf('core.MainLayout', module)
   .add('default view', () => {
-    const content = <p>This is the content inside the Layout.</p>
     return (
-      <MainLayout content={content} />
+      <MainLayout content={content}>
+        <p>This is the content inside the Layout.</p>
+      </MainLayout>
     );
   })
   .add('nav layout', () => {
-    const content = <p>Navigation layout</p>
     return (
-      <MainLayout content={content} navcontent={<NavBarGroup tag="div" extraclass="navbar-text"><div>hi</div></NavBarGroup>} />
+      <MainLayout navcontent={<NavBarGroup tag="div" extraclass="navbar-text"><div>hi</div></NavBarGroup>}>
+        <p>Navigation layout</p>
+      </MainLayout>
     )
   })
 

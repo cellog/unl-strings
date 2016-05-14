@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../../navigation/components/Navbar.jsx';
 
-const Layout = ({content = null, navcontent = null }) => (
+const Layout = ({children = null, navcontent = null }) => (
   <div>
     <header>
       <h1>UNL Strings Area</h1>
@@ -11,7 +11,7 @@ const Layout = ({content = null, navcontent = null }) => (
     </header>
 
     <div>
-      {content}
+      {children}
     </div>
 
     <footer>
