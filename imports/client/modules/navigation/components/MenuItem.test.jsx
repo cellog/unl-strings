@@ -26,13 +26,6 @@ describe('core.components.MenuItem', () => {
     expect(el.find('a').props().children[1].props.children).to.equal('(current)')
   })
 
-  it('no link: should trigger onClick', () => {
-    const onButtonClick = sinon.spy()
-    const el = shallow(<MenuItem link={null} onClick={onButtonClick} />)
-    el.find('li').simulate('click')
-    expect(onButtonClick.calledOnce).to.be.equal(true)
-  })
-
   it('no link: should set active if specified', () => {
     const el = mount(<MenuItem link={null} active />);
     expect(el.find('a').props().children[1].type).to.equal('span')

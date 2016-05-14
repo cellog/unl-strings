@@ -1,9 +1,8 @@
 import React, {PropTypes} from 'react'
 import NavBarGroup from '../../navigation/components/NavBarGroup.jsx'
 import MenuItem from '../../navigation/components/MenuItem.jsx'
-import { goToLink as link } from '../../routing/components/Link.jsx'
 
-const StudentNav = ({param = 'default'}) => {
+const StudentNav = ({param = 'default', link = () => null}) => {
   return (
     <NavBarGroup>
       <MenuItem text="Departmentals" link="/departmental" onClick={link} />
@@ -15,7 +14,8 @@ const StudentNav = ({param = 'default'}) => {
 
 
 StudentNav.propTypes = {
-  param: PropTypes.string.isRequired
+  param: PropTypes.string.isRequired,
+  link: PropTypes.func.isRequired
 }
 
 export default StudentNav

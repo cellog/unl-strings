@@ -21,12 +21,3 @@ storiesOf('navigation.MenuItem', module)
       </nav>
     );
   })
-  .add('no link', () => {
-    return (
-      <nav className="navbar navbar-default">
-        <ul className="nav navbar-nav">
-          <MenuItem active onClick={action('clicked')} link={null} />
-        </ul>
-      </nav>
-    )
-  })
