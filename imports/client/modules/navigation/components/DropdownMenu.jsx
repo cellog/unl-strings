@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import MenuItem from './MenuItem.jsx'
 
-const DropdownMenu = ({onClick = () => null, open = false, items = []}) => {
+const DropdownMenu = ({onClick = () => null, open = false, items = [], MyMenuItem = MenuItem}) => {
   const renderItems = (items) => {
     return items.map((item) => {
       switch (item.type) {
@@ -11,7 +11,7 @@ const DropdownMenu = ({onClick = () => null, open = false, items = []}) => {
           )
         default :
           return (
-            <MenuItem {...item}/>
+            <MyMenuItem {...item}/>
           )
       }
     })

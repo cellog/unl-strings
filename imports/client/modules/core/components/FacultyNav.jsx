@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react'
 import NavBarGroup from '../../navigation/components/NavBarGroup.jsx'
 import RouterMenuItem from '../../navigation/containers/RouterMenuItem.jsx'
 
-const StudentNav = () => {
+const FacultyNav = () => {
   return (
     <NavBarGroup>
       <RouterMenuItem text="Departmentals" link="/departmental" />
@@ -12,4 +12,4 @@ const StudentNav = () => {
   )
 }
 
-export default StudentNav
+export default FacultyNav
