@@ -1,13 +1,14 @@
-import React from 'react';
+import React from 'react'
+import Link from '../../routing/components/Link.jsx'
 
 const MenuItem = ({ active = false, text = 'Text', link = 'http://example.com', onClick = () => null}) =>
   link ? (
   <li className={active ? "active" : ''} onClick={onClick}>
-    <a href={link}>{text}{active ? <span className="sr-only">(current)</span> : '' }</a>
+    <Link href={link}>{text}{active ? <span className="sr-only">(current)</span> : '' }</Link>
   </li>
 ) : (
     <li className={active ? "active" : ''} onClick={onClick}>
-      <a href="" onClick={(e) => {e.preventDefault()}}>{text}{active ? <span className="sr-only">(current)</span> : '' }</a>
+      <Link href="">{text}{active ? <span className="sr-only">(current)</span> : '' }</Link>
     </li>
   );
 
