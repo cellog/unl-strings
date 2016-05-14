@@ -9,12 +9,6 @@ import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-rou
 import thunkMiddleWare from 'redux-thunk'
 import createLogger from 'redux-logger'
 
-import Layout from '../imports/client/modules/core/components/Layout.jsx'
-import StudentNav from '../imports/client/modules/core/components/StudentNav.jsx'
-import Student from '../imports/client/modules/core/components/Student.jsx'
-import PublicNav from '../imports/client/modules/core/components/PublicNav.jsx'
-import PublicMain from '../imports/client/modules/core/components/PublicMain.jsx'
-
 import * as modules from '../imports/client/modules'
 
 import '../imports/client/main.less'
@@ -38,9 +32,16 @@ Meteor.startup(() => {
 
     <Provider store={store}>
       <Router history={history}>
-        <Route path="/" component={Layout}>
-          <IndexRoute components={{main: PublicMain, navigation: PublicNav}} />
-          <Route path="student" components={{main: Student, navigation: StudentNav}} />
+        <Route path="/" component={modules.core.components.Layout}>
+          <IndexRoute components={{
+            main: modules.core.components.PublicMain,
+            navigation: modules.core.components.PublicNav}} />
+          <Route path="student" components={{
+            main: modules.core.components.Student,
+            navigation: modules.core.components.StudentNav}} />
+          <Route path="faculty" components={{
+            main: modules.core.components.Faculty,
+            navigation: modules.core.components.FacultyNav}} />
         </Route>
       </Router>
     </Provider>
