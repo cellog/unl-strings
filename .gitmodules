@@ -1,0 +1,3 @@
+[submodule "packages/cellog:meteor-saml-sp"]
+	path = packages/cellog:meteor-saml-sp
+	url = https://github.com/cellog/meteor-saml-sp.git
